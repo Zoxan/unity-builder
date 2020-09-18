@@ -15,6 +15,8 @@ LABEL "homepage"="http://github.com/webbertakken/unity-actions"
 LABEL "maintainer"="Webber Takken <webber@takken.io>"
 
 RUN bash -c 'mkdir -p /github/{home,workflow,workspace}' && chown $UID:$GID -R /github/
+RUN chown $UID:$GID -R /opt/Unity/
+RUN echo "uid: $UID, gid: $GID"
 RUN getent group $GID || groupadd -g $GID $UNAME
 RUN id -u $UID &>/dev/null || useradd -m -u $UID -g $GID -s /bin/bash -d /github/home $UNAME
 
