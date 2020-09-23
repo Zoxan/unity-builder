@@ -20,6 +20,7 @@ RUN echo "uid: $UID, gid: $GID"
 RUN getent group $GID || groupadd -g $GID $UNAME
 RUN id -u $UID &>/dev/null || useradd -m -u $UID -g $GID -s /bin/bash -d /github/home $UNAME
 
+RUN ls -R .
 
 RUN echo "java_home: $JAVA_HOME"
 RUN mv ${ANDROID_INSTALL_LOCATION}/SDK/ndk ${ANDROID_INSTALL_LOCATION}/NDK
