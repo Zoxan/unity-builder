@@ -22,10 +22,6 @@ RUN id -u $UID &>/dev/null || useradd -m -u $UID -g $GID -s /bin/bash -d /github
 
 RUN ls -R .
 
-RUN echo "java_home: $JAVA_HOME"
-RUN mv ${ANDROID_INSTALL_LOCATION}/SDK/ndk ${ANDROID_INSTALL_LOCATION}/NDK
-
-
 ADD default-build-script /UnityBuilderAction
 ADD steps /steps
 RUN chmod -R +x /steps
