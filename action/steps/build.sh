@@ -134,6 +134,9 @@ xvfb-run --auto-servernum --server-args='-screen 0 640x480x24' \
 # Catch exit code
 BUILD_EXIT_CODE=$?
 
+echo "==========="
+cat /root/.config/unity3d/Editor.log
+
 # Display results
 if [ $BUILD_EXIT_CODE -eq 0 ]; then
   echo "Build succeeded";
